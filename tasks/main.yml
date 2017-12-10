@@ -1,0 +1,35 @@
+---
+# tasks file for aws_efs_burst_credits
+
+- name: Launch the instace and create the dummy files on the EFS file system
+  local_action:
+    module: ec2
+    #aws_access_key: {{ aws_access_key }}
+    #aws_secret_key: {{ aws_secret_key }}
+    region: "{{ aws_region }}"
+    key_name: "{{ ssh_key_name }}"
+    group_id: "{{ security_group }}"
+    instance_type: "{{ item }}"
+    image: "{{ ami_id }}"
+    vpc_subnet_id: "{{ subnet }}"
+    instance_tags: '{"Name":"{{ec2_tag_Name}}"}'
+    assign_public_ip: "{{ yon }}"
+    wait: true
+    wait_timeout: 500
+    count: "{{ count_number }}"
+    user_data: "{{lookup('template', 'templates/script.sh.j2')}}"
+  register: ec2
+  with_items: "{{ instance_types }}"
+
+- name: Sleep for 5 minutes waiting for the instance to create the dummy files
+  wait_for: timeout=300
+  delegate_to: localhost
+
+- name: Terminate the instance that were previously launched
+  local_action:
+    module: ec2
+    state: 'absent'
+    instance_ids: '{{ ec2.results[0].instances[0].id }}'
+    #aws_access_key: {{ aws_access_key }}
+    #aws_secret_key: {{ aws_secret_key }}
+    region: "{{ aws_region }}"
