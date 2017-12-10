@@ -2,18 +2,46 @@
 galaxy_info:
   author: Diego Roberto dos Santos
   description: Ansible role to create dummy files on Amazon Elastic File System (EFS) mounts.
-  company: Amazon Web Services
   license: Apache
   min_ansible_version: 2.4.0.0
 
   platforms:
+  - name: EL
+    versions:
+    - all
+  - name: GenericUNIX
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: opensuse
+    versions:
+    - all
   - name: Amazon
     versions:
     - all
-
+  - name: GenericBSD
+    versions:
+    - all
+  - name: FreeBSD
+    versions:
+    - all
   - name: Ubuntu
     versions:
     - all
+  - name: SLES
+    versions:
+    - all
+  - name: GenericLinux
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  categories:
+  - cloud
+  - web
 
   galaxy_tags:
    - aws
