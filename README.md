@@ -92,7 +92,7 @@ dummy_files: "10"
 After changing the variables you're good to run the playbook:
 
 ```bash
-$ ansible-playbook role.yml
+$ ansible-playbook -i inventory role.yml
 ```
 
 ## Extra
