@@ -42,7 +42,9 @@ If you need more information about IAM policies, please refer to [Example Polici
 
 Install this ansible role using galaxy:
 
-    curl -kLs https://s3.amazonaws.com/diesant/aws_efs_burst_credits.tgz | tar xzvf -
+```bash
+$ ansible-galaxy install diesant.aws_efs_burst_credits
+```
     
 Before executing the ansible playbook, you first need to change some variables under the file vars/main.yml to match your environment configuration.
 
@@ -90,7 +92,7 @@ dummy_files: "10"
 After changing the variables you're good to run the playbook:
 
 ```bash
-ansible-playbook role.yml
+$ ansible-playbook role.yml
 ```
 
 ## Extra
@@ -99,15 +101,17 @@ Check the files/ directory if you want to play with a lambda function that creat
 
 ## License
 
-Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+```text
+Copyright 2017 Diego Roberto dos Santos
 
 Licensed under the Apache License, Version 2.0 (the "License"). You
 may not use this file except in compliance with the License. A copy of
 the License is located at
 
-    http://aws.amazon.com/apache2.0/
+    http://www.apache.org/licenses/LICENSE-2.0
 
 or in the "license" file accompanying this file. This file is
 distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
 ANY KIND, either express or implied. See the License for the specific
 language governing permissions and limitations under the License.
+```
