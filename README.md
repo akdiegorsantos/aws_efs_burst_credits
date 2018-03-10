@@ -42,7 +42,7 @@ If you need more information about IAM policies, please refer to [Example Polici
 
 Install this ansible role using galaxy:
 
-```bash
+```sh
 $ ansible-galaxy install diesant.aws_efs_burst_credits
 ```
     
@@ -91,7 +91,7 @@ dummy_files: "10"
 
 After changing the variables you're good to run the playbook:
 
-```bash
+```sh
 $ ansible-playbook -i inventory role.yml
 ```
 
