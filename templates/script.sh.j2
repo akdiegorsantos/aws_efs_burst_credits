@@ -3,7 +3,7 @@ packages:
  - nfs-utils
 
 runcmd:
- - sudo mkdir /mnt/efs 
- - sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 {{ efs_filesystem }}:/ /mnt/efs
+ - sudo mkdir /mnt/efs
+ - sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev {{ efs_filesystem }}:/ /mnt/efs
  - sudo mkdir /mnt/efs/dummyfiles
  - for each in $(seq 1 {{ dummy_files }}); do SUFFIX=$(mktemp -u _dummyfile_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX); sudo dd if=/dev/zero of=/mnt/efs/dummyfiles/${SUFFIX} bs=1M count=1024; done

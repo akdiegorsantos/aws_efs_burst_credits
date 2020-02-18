@@ -28,8 +28,8 @@
 - name: Terminate the instance that were previously launched
   local_action:
     module: ec2
-    state: 'absent'
-    instance_ids: '{{ ec2.results[0].instances[0].id }}'
+    state: "absent"
+    instance_ids: "{{ ec2.results[0].instances[0].id }}"
     #aws_access_key: {{ aws_access_key }}
     #aws_secret_key: {{ aws_secret_key }}
     region: "{{ aws_region }}"

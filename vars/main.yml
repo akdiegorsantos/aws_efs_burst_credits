@@ -4,16 +4,16 @@
 # AWS Credentials is not needed if you use an IAM role
 #aws_access_key: "AKIAIOSFODNN7EXAMPLE"
 #aws_secret_key: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
-aws_region:     "eu-west-1"
+aws_region: "us-east-1"
 
 # The instance type that will be used to run the shell script
-instance_types: [ "c4.large"]
+instance_types: ["t3.small"]
 
 # The SSH key pair that will be used to launch the instance
-ssh_key_name: "bastion"
+ssh_key_name: "MyKeyExample"
 
 # The AMI id that will be used to launch the instance
-ami_id: "ami-acd005d5"
+ami_id: "ami-acd005d5example"
 
 # The number of instances to be launched
 count_number: "1"
@@ -28,10 +28,10 @@ ec2_tag_Name: "aws_efs_burst_credits"
 efs_filesystem: "file-system-id.efs.aws-region.amazonaws.com"
 
 # The VPC subnet where the instance will be launched
-subnet: "subnet-650b1e13"
+subnet: "subnet-650b1e13example"
 
 # The security group that will be attached to the instance that will be launched
-security_group: "sg-b09517c8"
+security_group: "sg-b09517c8example"
 
 # The number of dummy files to be created
 dummy_files: "10"
